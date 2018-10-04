@@ -9,52 +9,38 @@ module.exports = {
     excluir
 };
 
-async function inserir(params) {    
-    try {
-        await scope.inserir(params);
-        
-        return await repository.inserir(params);
-    } catch (error) {
-        return res.status(400).json(error)
-    }    
+async function inserir(params) {
+    await scope.inserir(params);
+
+    return await repository.inserir(params);
 }
 
 async function selecionar(params) {
-    try {
-        await scope.selecionar(params);
+    let data = await repository.selecionar(params);
 
-        return await repository.selecionar(params);
-    } catch (error) {
-        return res.status(400).json(error)
-    }
+    data.totalLinhas = data.length ? data[0].totalLinhas : 0;
+
+    data.forEach(item => {
+        delete item.totalLinhas
+    });
+
+    return data;
 }
 
 async function selecionarPorId(params) {
-    try {
-        await scope.selecionarPorId(params);
+    await scope.selecionarPorId(params);
 
-        return await repository.selecionarPorId(params);
-    } catch (error) {
-        return res.status(400).json(error)
-    }
+    return await repository.selecionarPorId(params);
 }
 
 async function alterar(params) {
-    try {
-        await scope.alterar(params);
+    await scope.alterar(params);
 
-        return await repository.alterar(params);
-    } catch (error) {
-        return res.status(400).json(error)
-    }
+    return await repository.alterar(params);
 }
 
 async function excluir(params) {
-    try {
-        await scope.excluir(params);
+    await scope.excluir(params);
 
-        return await repository.excluir(params);
-    } catch (error) {
-        return res.status(400).json(error)
-    }
+    return await repository.excluir(params);
 }

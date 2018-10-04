@@ -2,28 +2,64 @@ const validate = require('../../helpers/validate');
 
 module.exports = {
     inserir,
-    selecionar,
     selecionarPorId,
     alterar,
     excluir
 };
 
 async function inserir(params) {
-    await validate(params);
-}
+    const validation = {
+        nome: {
+            required: true
+        },
+        preco: {
+            required: true,
+            number: 'integer'
+        },
+        codBarras: {
+            required: true
+        }
+    };
 
-async function selecionar(params) {
-    await validate(params);
+    await validate(params, validation);
 }
 
 async function selecionarPorId(params) {
-    await validate(params);
+    const validation = {
+        id: {
+            required: true
+        }
+    };
+
+    await validate(params, validation);
 }
 
 async function alterar(params) {
-    await validate(params);
+    const validation = {
+        id: {
+            required: true
+        },
+        nome: {
+            required: true
+        },
+        preco: {
+            required: true,
+            number: 'integer'
+        },
+        codBarras: {
+            required: true
+        }
+    };
+
+    await validate(params, validation);
 }
 
 async function excluir(params) {
-    await validate(params);
+    const validation = {
+        id: {
+            required: true
+        }
+    };
+
+    await validate(params, validation);
 }

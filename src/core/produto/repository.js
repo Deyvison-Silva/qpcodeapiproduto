@@ -1,4 +1,4 @@
-const db = global.db;
+const db = require('../../../settings/db');
 
 module.exports = {
     inserir,

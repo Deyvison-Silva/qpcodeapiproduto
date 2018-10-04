@@ -9,42 +9,54 @@ module.exports = {
 };
 
 async function inserir(req, res) {
-    const params = {
-        nome: req.body.nome,
-        preco: req.body.preco,
-        descricao: req.body.descricao,
-        codBarras: req.body.codBarras,
-    };
     try {
-        await service.inserir(params);
+        const params = {
+            nome: req.body.nome,
+            preco: req.body.preco,
+            descricao: req.body.descricao,
+            codBarras: req.body.codBarras,
+        };
 
+        const data = await service.inserir(params);
+
+        res.send({
+            content: data
+        });
     } catch (error) {
+        console.log(error);
         return res.status(400).json(error);
     }
 }
 
 async function selecionar(req, res) {
-    const params = {
-        pesquisa: req.query.pesquisa,
-        pagina: req.query.pagina,
-        linhas: req.query.linhas,
-    };
-
     try {
-        await service.selecionar(params);
+        const params = {
+            pesquisa: req.query.pesquisa,
+            pagina: req.query.pagina,
+            linhas: req.query.linhas,
+        };
 
+        const data = await service.selecionar(params);
+
+        res.send({
+            content: data
+        });
     } catch (error) {
         return res.status(400).json(error);
     }
 }
 
 async function selecionarPorId(req, res) {
-    const params = {
-        id: req.params.id,
-    };
-
     try {
-        await service.selecionarPorId(params);
+        const params = {
+            id: req.params.id,
+        };
+
+        const data = await service.selecionarPorId(params);
+
+        res.send({
+            content: data
+        });
 
     } catch (error) {
         return res.status(400).json(error);
@@ -52,16 +64,20 @@ async function selecionarPorId(req, res) {
 }
 
 async function alterar(req, res) {
-    const params = {
-        id: req.params.id,
-        nome: req.body.nome,
-        preco: req.body.preco,
-        descricao: req.body.descricao,
-        codBarras: req.body.codBarras,
-    };
-
     try {
-        await service.alterar(params);
+        const params = {
+            id: req.params.id,
+            nome: req.body.nome,
+            preco: req.body.preco,
+            descricao: req.body.descricao,
+            codBarras: req.body.codBarras,
+        };
+
+        const data = await service.alterar(params);
+
+        res.send({
+            content: data
+        });
 
     } catch (error) {
         return res.status(400).json(error);
@@ -69,12 +85,16 @@ async function alterar(req, res) {
 }
 
 async function excluir(req, res) {
-    const params = {
-        id: req.params.id,
-    };
-
     try {
-        await service.excluir(params);
+        const params = {
+            id: req.params.id,
+        };
+
+        const data = await service.excluir(params);
+
+        res.send({
+            content: data
+        });
 
     } catch (error) {
         return res.status(400).json(error);

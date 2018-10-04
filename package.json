@@ -1,20 +1,18 @@
 {
   "name": "qpcodeapiproduto",
   "version": "1.0.0",
-  "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "prestart": "npm install",
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gasparinirafael@bitbucket.org/DeyvisonRezende/qpcodeapiproduto.git"
+    "url": "git+https://github.com/Deyvison-Silva/qpcodeapiproduto.git"
   },
-  "author": "4ek",
+  "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/DeyvisonRezende/qpcodeapiproduto#readme",
+  "homepage": "https://github.com/Deyvison-Silva/qpcodeapiproduto#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "consign": "^0.1.6",
