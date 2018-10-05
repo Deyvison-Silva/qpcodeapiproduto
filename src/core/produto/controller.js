@@ -19,11 +19,8 @@ async function inserir(req, res) {
 
         const data = await service.inserir(params);
 
-        res.send({
-            content: data
-        });
+        res.send(data);
     } catch (error) {
-        console.log(error);
         return res.status(400).json(error);
     }
 }
@@ -38,9 +35,7 @@ async function selecionar(req, res) {
 
         const data = await service.selecionar(params);
 
-        res.send({
-            content: data
-        });
+        res.send(data);
     } catch (error) {
         return res.status(400).json(error);
     }
@@ -52,11 +47,10 @@ async function selecionarPorId(req, res) {
             id: req.params.id,
         };
 
-        const data = await service.selecionarPorId(params);
+        let data = await service.selecionarPorId(params);
 
-        res.send({
-            content: data
-        });
+        data = data[0];
+        res.send(data);
 
     } catch (error) {
         return res.status(400).json(error);
@@ -75,9 +69,7 @@ async function alterar(req, res) {
 
         const data = await service.alterar(params);
 
-        res.send({
-            content: data
-        });
+        res.send(data);
 
     } catch (error) {
         return res.status(400).json(error);
@@ -92,9 +84,7 @@ async function excluir(req, res) {
 
         const data = await service.excluir(params);
 
-        res.send({
-            content: data
-        });
+        res.send(data);
 
     } catch (error) {
         return res.status(400).json(error);

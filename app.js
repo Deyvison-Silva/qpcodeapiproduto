@@ -10,6 +10,11 @@ const config = {
     isProduction: process.env.isProduction || false
 };
 
+
+module.exports = {
+    config
+};
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -26,5 +31,3 @@ app.use(error.notFound);
 app.listen(config.port, () => {
     console.log(`Servidor rodando na porta ${config.port}`);
 });
-
-module.exports = app;
