@@ -10,11 +10,6 @@ const config = {
     isProduction: process.env.isProduction || false
 };
 
-
-module.exports = {
-    config
-};
-
 const app = express();
 
 app.use(bodyParser.json());

@@ -16,11 +16,12 @@ async function inserir(params) {
 }
 
 async function selecionar(params) {
-    let data = await repository.selecionar(params);
+    let data = {};
+    data.content = await repository.selecionar(params);
 
-    data.totalLinhas = data.length ? data[0].totalLinhas : 0;
+    data.totalLinhas = data.content.length ? data.content[0].totalLinhas : 0;
 
-    data.forEach(item => {
+    data.content.forEach(item => {
         delete item.totalLinhas
     });
 

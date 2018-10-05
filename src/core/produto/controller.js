@@ -19,7 +19,7 @@ async function inserir(req, res) {
 
         const data = await service.inserir(params);
 
-        res.send(data);
+        res.send(data[0]);
     } catch (error) {
         return res.status(400).json(error);
     }
@@ -69,7 +69,7 @@ async function alterar(req, res) {
 
         const data = await service.alterar(params);
 
-        res.send(data);
+        res.send(data[0]);
 
     } catch (error) {
         return res.status(400).json(error);
@@ -84,7 +84,7 @@ async function excluir(req, res) {
 
         const data = await service.excluir(params);
 
-        res.send(data);
+        res.send(data[0]);
 
     } catch (error) {
         return res.status(400).json(error);
