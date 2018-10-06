@@ -4,6 +4,7 @@ module.exports = {
     inserir,
     selecionar,
     selecionarPorId,
+    selecionarPorCodBarras,
     alterar,
     excluir
 };
@@ -48,6 +49,22 @@ async function selecionarPorId(req, res) {
         };
 
         let data = await service.selecionarPorId(params);
+
+        data = data[0];
+        res.send(data);
+
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+
+async function selecionarPorCodBarras(req, res) {
+    try {
+        const params = {
+            cod: req.params.cod,
+        };
+
+        let data = await service.selecionarPorCodBarras(params);
 
         data = data[0];
         res.send(data);

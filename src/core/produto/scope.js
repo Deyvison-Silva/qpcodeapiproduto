@@ -3,6 +3,7 @@ const validate = require('../../helpers/validate');
 module.exports = {
     inserir,
     selecionarPorId,
+    selecionarPorCodBarras,
     alterar,
     excluir
 };
@@ -27,6 +28,16 @@ async function inserir(params) {
 async function selecionarPorId(params) {
     const validation = {
         id: {
+            required: true
+        }
+    };
+
+    await validate(params, validation);
+}
+
+async function selecionarPorCodBarras(params) {
+    const validation = {
+        cod: {
             required: true
         }
     };

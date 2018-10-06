@@ -5,6 +5,7 @@ module.exports = {
     inserir,
     selecionar,
     selecionarPorId,
+    selecionarPorCodBarras,
     alterar,
     excluir
 };
@@ -32,6 +33,12 @@ async function selecionarPorId(params) {
     await scope.selecionarPorId(params);
 
     return await repository.selecionarPorId(params);
+}
+
+async function selecionarPorCodBarras(params) {
+    await scope.selecionarPorCodBarras(params);
+
+    return await repository.selecionarPorCodBarras(params);
 }
 
 async function alterar(params) {

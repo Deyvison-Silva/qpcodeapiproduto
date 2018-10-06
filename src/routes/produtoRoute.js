@@ -9,4 +9,7 @@ module.exports = (app) => {
         .get(produto.selecionarPorId)
         .put(produto.alterar)
         .delete(produto.excluir);
+
+    app.route('/produto/cod/:cod')
+        .get(produto.selecionarPorCodBarras);
 };

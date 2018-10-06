@@ -17,6 +17,10 @@ routes = {
             method: 'GET',
             url: `${routeDefault}/produto/:id`
         },
+        selecionarPorCodBarras: {
+            method: 'GET',
+            url: `${routeDefault}/produto/cod/:cod`
+        },
         inserir: {
             method: 'POST',
             url: `${routeDefault}/produto`

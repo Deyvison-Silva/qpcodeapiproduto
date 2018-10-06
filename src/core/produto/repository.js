@@ -4,6 +4,7 @@ module.exports = {
     inserir,
     selecionar,
     selecionarPorId,
+    selecionarPorCodBarras,
     alterar,
     excluir
 };
@@ -28,6 +29,12 @@ async function selecionar(params) {
 async function selecionarPorId(params) {
     return db.func('Administrativo.ListarProdutoPorId',[
         params.id,
+    ]);
+}
+
+async function selecionarPorCodBarras(params) {
+    return db.func('Administrativo.ListarProdutoPorCodBarras',[
+        params.cod,
     ]);
 }
 
